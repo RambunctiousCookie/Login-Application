@@ -37,7 +37,7 @@ public class AppApplication {
 			String adminId = "admin_one";
 			BaseModelDTO baseModelDTO = new BaseModelDTO(false, adminId, now, adminId, now);
 
-			Department department = departmentRepository.saveAndFlush(new Department(baseModelDTO, "Department One", "The first department"));
+			Department department = departmentRepository.saveAndFlush(new Department(baseModelDTO, "Success Department", "Engineering the future of society."));
 
 			String salt = BCrypt.gensalt();
 			Manager manager = managerRepository.saveAndFlush(new Manager(baseModelDTO, "Manager", "One",
@@ -59,6 +59,7 @@ public class AppApplication {
 			if (departmentRepository.findById(entityId).isPresent()) {
 				Department foundDepartment = departmentRepository.findById(entityId).get();
 				System.out.println(foundDepartment);
+				foundDepartment.getEmployees().stream().forEach(System.out::println);
 			} else {
 				throw new ObjectNotFoundException(departmentRepository.findById(entityId),"Entity with ID " + entityId + " not found");
 			}

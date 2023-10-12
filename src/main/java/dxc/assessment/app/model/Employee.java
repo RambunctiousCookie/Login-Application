@@ -25,7 +25,7 @@ public class Employee extends BaseModel {
 
     @NotBlank(message = "User ID is required")
     @Column(unique = true)
-    protected String userId;
+    protected String username;
 
     @Size(min = 8, message = "Password must be at least 8 characters long")
     protected String password;
@@ -50,7 +50,7 @@ public class Employee extends BaseModel {
             LocalDateTime lastUpdatedTime,
             String firstName,
             String lastName,
-            String userId,
+            String username,
             String password,
             String salt,
             String phone,
@@ -58,7 +58,7 @@ public class Employee extends BaseModel {
         super(false, createdBy, createdTime, lastUpdatedBy, lastUpdatedTime);
         this.firstName = firstName;
         this.lastName = lastName;
-        this.userId = userId;
+        this.username = username;
         this.password = password;
         this.salt = salt;
         this.phone = phone;
@@ -69,7 +69,7 @@ public class Employee extends BaseModel {
             BaseModelDTO baseModelDTO,
             String firstName,
             String lastName,
-            String userId,
+            String username,
             String password,
             String salt,
             String phone,
@@ -77,7 +77,7 @@ public class Employee extends BaseModel {
         super(baseModelDTO);
         this.firstName = firstName;
         this.lastName = lastName;
-        this.userId = userId;
+        this.username = username;
         this.password = password;
         this.salt = salt;
         this.phone = phone;
@@ -91,9 +91,9 @@ public class Employee extends BaseModel {
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", email='" + userId + '\'' +
+                ", email='" + username + '\'' +
                 ", phone='" + phone + '\'' +
                 "} " +
-                super.toString()+"\n";
+                super.toString();
     }
 }

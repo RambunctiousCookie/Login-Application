@@ -54,8 +54,7 @@ public class Department extends BaseModel {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
-//                ", manager=" + manager.getUserId() +
-                ", employees=" + employees +
+                ", employees=" + employees.size() +
                 '}';
     }
 }
