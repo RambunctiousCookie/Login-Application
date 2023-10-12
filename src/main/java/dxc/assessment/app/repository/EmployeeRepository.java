@@ -6,7 +6,6 @@ import java.util.List;
 
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
-    public List<Employee> findByIsDeleted(boolean isDeleted);
+    public List<Employee> findByDeleted(boolean deleted);
     public List<Employee> findAll();
-
 }

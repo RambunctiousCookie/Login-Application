@@ -1,8 +1,6 @@
 package dxc.assessment.app.service.impl;
 
-import dxc.assessment.app.model.Employee;
 import dxc.assessment.app.model.Manager;
-import dxc.assessment.app.repository.EmployeeRepository;
 import dxc.assessment.app.repository.ManagerRepository;
 import dxc.assessment.app.service.ManagerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +23,6 @@ public class ManagerServiceImpl implements ManagerService {
         return managerRepository.findAll();
     }
     public List<Manager> findAllValidEmployees() {
-        return managerRepository.findByIsDeleted(false);
+        return managerRepository.findByDeleted(false);
     }
 }

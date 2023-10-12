@@ -28,8 +28,7 @@ public class Employee extends AccountHolder {
             String lastName,
             String email,
             String password,
-            String phone,
-            String userNumber) {
+            String phone) {
         super(false, createdBy, createdTime, lastUpdatedBy, lastUpdatedTime, firstName, lastName, email, password,
                 phone);
     }

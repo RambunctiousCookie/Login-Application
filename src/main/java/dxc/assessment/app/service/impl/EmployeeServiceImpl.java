@@ -22,7 +22,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employeeRepository.findAll();
     }
     public List<Employee> findAllValidEmployees() {
-        return employeeRepository.findByIsDeleted(false);
+        return employeeRepository.findByDeleted(false);
     }
 
 }
