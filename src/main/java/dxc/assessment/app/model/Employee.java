@@ -1,20 +1,20 @@
 package dxc.assessment.app.model;
 
-import jakarta.persistence.DiscriminatorValue;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
 @DiscriminatorValue("Employee")
 @Data
 public class Employee extends AccountHolder {
-
+    @ManyToOne
+    @JoinColumn(name = "department_id")
+    private Department department;
 
     public Employee() {
     }
@@ -26,11 +26,11 @@ public class Employee extends AccountHolder {
             LocalDateTime lastUpdatedTime,
             String firstName,
             String lastName,
-            String email,
+            String userId,
             String password,
             String salt,
             String phone) {
-        super(false, createdBy, createdTime, lastUpdatedBy, lastUpdatedTime, firstName, lastName, email, password, salt,
+        super(false, createdBy, createdTime, lastUpdatedBy, lastUpdatedTime, firstName, lastName, userId, password, salt,
                 phone);
     }
 

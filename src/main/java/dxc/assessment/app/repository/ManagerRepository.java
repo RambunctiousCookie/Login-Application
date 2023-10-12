@@ -7,6 +7,5 @@ import java.util.List;
 @Repository
 public interface ManagerRepository extends JpaRepository<Manager, Integer> {
     public List<Manager> findByDeleted(boolean deleted);
-    public List<Manager> findAll();
 
 }

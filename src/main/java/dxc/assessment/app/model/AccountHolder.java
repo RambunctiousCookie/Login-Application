@@ -24,9 +24,9 @@ public abstract class AccountHolder extends BaseModel {
     @NotBlank(message = "Last Name is required")
     protected String lastName;
 
-    @Email(message = "Invalid email format")
+    @NotBlank(message = "User ID is required")
     @Column(unique = true)
-    protected String email;
+    protected String userId;
 
     @Size(min = 8, message = "Password must be at least 8 characters long")
     protected String password;
@@ -41,21 +41,21 @@ public abstract class AccountHolder extends BaseModel {
     }
 
     public AccountHolder(
-            boolean isDeleted,
+            boolean deleted,
             String createdBy,
             LocalDateTime createdTime,
             String lastUpdatedBy,
             LocalDateTime lastUpdatedTime,
             String firstName,
             String lastName,
-            String email,
+            String userId,
             String password,
             String salt,
             String phone) {
-        super(isDeleted, createdBy, createdTime, lastUpdatedBy, lastUpdatedTime);
+        super(deleted, createdBy, createdTime, lastUpdatedBy, lastUpdatedTime);
         this.firstName = firstName;
         this.lastName = lastName;
-        this.email = email;
+        this.userId = userId;
         this.password = password;
         this.salt = salt;
         this.phone = phone;
@@ -68,7 +68,7 @@ public abstract class AccountHolder extends BaseModel {
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
+                ", email='" + userId + '\'' +
                 ", password='" + password + '\'' +
                 ", phone='" + phone + '\'' +
                 '}' +
