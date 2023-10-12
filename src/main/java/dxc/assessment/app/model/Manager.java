@@ -1,9 +1,7 @@
 package dxc.assessment.app.model;
-
 import dxc.assessment.app.DTO.BaseModelDTO;
 import jakarta.persistence.*;
 import lombok.Data;
-
 import java.time.LocalDateTime;
 
 
@@ -29,7 +27,6 @@ public class Manager extends Employee {
             Department department) {
         super(createdBy, createdTime, lastUpdatedBy, lastUpdatedTime, firstName, lastName, userId,
                 password, salt, phone, department);
-
     }
 
     public Manager(
@@ -46,8 +43,8 @@ public class Manager extends Employee {
 
     @Override
     public String toString() {
-
-        return super.toString().replace("Employee {","Manager {");
+        //return super.toString().replace("Employee {","Manager {");
+        return "Manager" + super.toString().substring(8);
     }
 }
 

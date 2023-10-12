@@ -10,10 +10,7 @@ import java.util.List;
 
 @Service
 public class ManagerServiceImpl implements ManagerService {
-
     private ManagerRepository managerRepository;
-
-    //constructor injection for DI/testing
     @Autowired
     public ManagerServiceImpl(ManagerRepository managerRepository) {
         this.managerRepository = managerRepository;

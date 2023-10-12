@@ -91,7 +91,7 @@ public class Employee extends BaseModel {
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", email='" + username + '\'' +
+                ", username='" + username + '\'' +
                 ", phone='" + phone + '\'' +
                 "} " +
                 super.toString();
