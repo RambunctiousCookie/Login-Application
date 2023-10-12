@@ -1,5 +1,7 @@
 package dxc.assessment.app.model;
 
+import com.fasterxml.jackson.databind.ser.Serializers;
+import dxc.assessment.app.DTO.BaseModelDTO;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -27,6 +29,14 @@ public abstract class BaseModel {
         this.createdTime = createdTime;
         this.lastUpdatedBy = lastUpdatedBy;
         this.lastUpdatedTime = lastUpdatedTime;
+    }
+
+    public BaseModel(BaseModelDTO baseModelDTO){
+        this.deleted = baseModelDTO.isDeleted();
+        this.createdBy = baseModelDTO.getCreatedBy();
+        this.createdTime = baseModelDTO.getCreatedTime();
+        this.lastUpdatedBy = baseModelDTO.getLastUpdatedBy();
+        this.lastUpdatedTime = baseModelDTO.getLastUpdatedTime();
     }
 
     public boolean isActive(){

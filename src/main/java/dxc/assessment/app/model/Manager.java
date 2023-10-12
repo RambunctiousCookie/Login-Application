@@ -1,20 +1,17 @@
 package dxc.assessment.app.model;
 
+import dxc.assessment.app.DTO.BaseModelDTO;
 import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 
 @Entity
 @DiscriminatorValue("Manager")
 @Data
-public class Manager extends AccountHolder {
-    @OneToOne
-    private Department department;
-
+public class Manager extends Employee {
+    //Future manager-related fields
     public Manager() {
     }
 
@@ -28,17 +25,29 @@ public class Manager extends AccountHolder {
             String userId,
             String password,
             String salt,
-            String phone) {
-        super(false, createdBy, createdTime, lastUpdatedBy, lastUpdatedTime, firstName, lastName, userId,
-                password, salt, phone);
+            String phone,
+            Department department) {
+        super(createdBy, createdTime, lastUpdatedBy, lastUpdatedTime, firstName, lastName, userId,
+                password, salt, phone, department);
 
+    }
+
+    public Manager(
+            BaseModelDTO baseModelDTO,
+            String firstName,
+            String lastName,
+            String userId,
+            String password,
+            String salt,
+            String phone,
+            Department department) {
+        super(baseModelDTO, firstName, lastName, userId, password, salt, phone, department);
     }
 
     @Override
     public String toString() {
 
-        return "Lecturer" +
-                "\n\t" +
-                super.toString();
+        return super.toString().replace("Employee {","Manager {");
     }
 }
+
