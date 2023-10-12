@@ -25,10 +25,14 @@ public abstract class AccountHolder extends BaseModel {
     protected String lastName;
 
     @Email(message = "Invalid email format")
+    @Column(unique = true)
     protected String email;
 
     @Size(min = 8, message = "Password must be at least 8 characters long")
     protected String password;
+
+    @NotBlank(message = "Salt is required")
+    protected String salt;
 
     @Pattern(regexp = "\\d{8}", message = "Phone number must be 8 digits")
     protected String phone;
@@ -46,17 +50,20 @@ public abstract class AccountHolder extends BaseModel {
             String lastName,
             String email,
             String password,
+            String salt,
             String phone) {
         super(isDeleted, createdBy, createdTime, lastUpdatedBy, lastUpdatedTime);
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
+        this.salt = salt;
         this.phone = phone;
     }
 
     @Override
     public String toString() {
+        //do not display salt
         return "Account Holder Attributes{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +

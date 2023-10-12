@@ -27,9 +27,10 @@ public class Manager extends AccountHolder {
             String lastName,
             String email,
             String password,
+            String salt,
             String phone) {
         super(false, createdBy, createdTime, lastUpdatedBy, lastUpdatedTime, firstName, lastName, email,
-                password, phone);
+                password, salt, phone);
 
     }
 
