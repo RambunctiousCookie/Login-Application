@@ -55,27 +55,27 @@ public class AppApplication {
 //					employeeTwo
 //			};
 
-			int entityId = 1;
-			if (departmentRepository.findById(entityId).isPresent()) {
-				Department foundDepartment = departmentRepository.findById(entityId).get();
-				System.out.println(foundDepartment);
-				foundDepartment.getEmployees().stream().forEach(System.out::println);
-			} else {
-				throw new ObjectNotFoundException(departmentRepository.findById(entityId),"Entity with ID " + entityId + " not found");
-			}
+//			int entityId = 1;
+//			if (departmentRepository.findById(entityId).isPresent()) {
+//				Department foundDepartment = departmentRepository.findById(entityId).get();
+//				System.out.println(foundDepartment);
+//				foundDepartment.getEmployees().stream().forEach(System.out::println);
+//			} else {
+//				throw new ObjectNotFoundException(departmentRepository.findById(entityId),"Entity with ID " + entityId + " not found");
+//			}
 
-			Employee foundEmployee = employeeRepository.findByUsernameAndDeleted(manager.getUsername(),false);	//query is derived; expected behavior
-//			Employee foundEmployee = employeeRepository.findByUsername("foo");
-
-			if (foundEmployee == null)
-				System.out.println("Employee does not exist!");
-			else if (foundEmployee instanceof Manager)
-				System.out.println(foundEmployee.getUsername()+ " is a manager.");
-				//is a manager
-			else
-				System.out.println(foundEmployee.getUsername()+ " is an employee.");
-
-			List<Employee> employeesByDept = employeeRepository.findAllByDepartment(department);
+//			Employee foundEmployee = employeeRepository.findByUsernameAndDeleted(manager.getUsername(),false);	//query is derived; expected behavior
+////			Employee foundEmployee = employeeRepository.findByUsername("foo");
+//
+//			if (foundEmployee == null)
+//				System.out.println("Employee does not exist!");
+//			else if (foundEmployee instanceof Manager)
+//				System.out.println(foundEmployee.getUsername()+ " is a manager.");
+//				//is a manager
+//			else
+//				System.out.println(foundEmployee.getUsername()+ " is an employee.");
+//
+//			List<Employee> employeesByDept = employeeRepository.findAllByDepartment(department);
 
 
 //			employeeTwo.setDeleted(true);
@@ -85,9 +85,6 @@ public class AppApplication {
 //			List<Employee> employeeListTeamOne = employeeRepository.findEmployeesByDepartmentIdAndDeleted(department.getId(),false);
 //
 //			employeeListTeamOne.forEach(System.out::println);
-
-
-			System.out.println();
 
 			//Arrays.stream(employees).forEach(System.out::println);
 

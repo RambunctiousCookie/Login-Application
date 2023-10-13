@@ -19,7 +19,7 @@ public class ManagerServiceImpl implements ManagerService {
     public List<Manager> findAllManagers() {
         return managerRepository.findAll();
     }
-    public List<Manager> findAllValidEmployees() {
+    public List<Manager> findAllValidManagers() {
         return managerRepository.findByDeleted(false);
     }
 }

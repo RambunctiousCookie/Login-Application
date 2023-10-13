@@ -7,5 +7,5 @@ import java.util.List;
 public interface  ManagerService {
 
     List<Manager> findAllManagers();
-    List<Manager> findAllValidEmployees();
+    List<Manager> findAllValidManagers();
 }
