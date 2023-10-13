@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Department Info</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/universal.css}" href="/css/universal.css" />
-</head>
+<head th:replace="fragments/layout.html :: html_head"></head>
 <body>
 <div th:replace="fragments/layout.html :: menu"/>
 <h2>Department Information</h2>
