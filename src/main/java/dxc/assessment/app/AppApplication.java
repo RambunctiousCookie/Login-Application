@@ -40,14 +40,14 @@ public class AppApplication {
 			Department department = departmentRepository.saveAndFlush(new Department(baseModelDTO, "Success Department", "Engineering the future of society."));
 
 			String salt = BCrypt.gensalt();
-			Manager manager = managerRepository.saveAndFlush(new Manager(baseModelDTO, "Manager", "One",
+			Manager manager = managerRepository.saveAndFlush(new Manager(baseModelDTO, "Mark", "Oleg",
 					"manager_one", BCrypt.hashpw("Sparkling_Ocean_456", salt), salt, "97224466", department));
 
 			salt = BCrypt.gensalt();
-			Employee employeeOne = employeeRepository.saveAndFlush(new Employee(baseModelDTO, "Employee", "One","employee_one", BCrypt.hashpw("Radiant_Tiger_789", salt), salt, "98876543", department));
+			Employee employeeOne = employeeRepository.saveAndFlush(new Employee(baseModelDTO, "Emma", "Okas","employee_one", BCrypt.hashpw("Radiant_Tiger_789", salt), salt, "98876543", department));
 
 			salt = BCrypt.gensalt();
-			Employee employeeTwo = employeeRepository.saveAndFlush(new Employee(baseModelDTO, "Employee", "Two","employee_two", BCrypt.hashpw("Mystic_Dragon_357", salt), salt, "98011234", department));
+			Employee employeeTwo = employeeRepository.saveAndFlush(new Employee(baseModelDTO, "Eugene", "Trellis","employee_two", BCrypt.hashpw("Mystic_Dragon_357", salt), salt, "98011234", department));
 
 //			Employee[] employees = {
 //					manager,
