@@ -3,13 +3,13 @@
 <head th:replace="fragments/layout.html :: html_head"></head>
 <body>
 <div th:replace="fragments/layout.html :: menu"></div>
-<h2>Choose Language</h2>
+<h2 th:text="#{language.title}"></h2>
 <ul>
     <li>
         <a href="/language?lang=en" data-th-text="#{label.lang.en}"></a>
     </li>
     <li>
-        <a href="/language?lang=fr" data-th-text="#{label.lang.fr}"></a>
+        <a href="/language?lang=nl" data-th-text="#{label.lang.nl}"></a>
     </li>
 </ul>
 </body>

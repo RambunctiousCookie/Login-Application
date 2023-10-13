@@ -3,7 +3,7 @@
 <head th:replace="fragments/layout.html :: html_head"></head>
 <body>
 <div th:replace="fragments/layout.html :: menu"></div>
-<h2>Department Information</h2>
+<h2 th:text="#{department.title}"></h2>
 <ul>
     <li th:each="employee : ${teamMembers}">
         <p th:text="${employee.firstName + ' ' + employee.lastName}"></p>

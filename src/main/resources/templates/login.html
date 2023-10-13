@@ -2,8 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/layout.html :: html_head"></head>
 <body>
-<div th:replace="fragments/layout.html :: menu"></div>
-  <h2>Login</h2>
+  <div th:replace="fragments/layout.html :: menu"></div>
+  <h2 th:text="#{login.title}"></h2>
   <form method="post" th:action="@{'/login'}">
     <table class="framed">
       <tr>
@@ -16,12 +16,12 @@
       </tr>
       <tr>
         <td colspan="2">
-          <input type="submit" value="Login" />
+          <input type="submit" th:value="#{login.title}" />
         </td>
       </tr>
       <tr>
         <td colspan="2">
-          <span th:if="${loginMessage != null}" th:text="${loginMessage}"></span>
+          <span th:if="${loginMessage != null}" th:text="#{login.error}"></span>
         </td>
       </tr>
     </table>

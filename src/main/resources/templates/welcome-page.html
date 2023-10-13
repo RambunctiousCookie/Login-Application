@@ -3,15 +3,14 @@
 <head th:replace="fragments/layout.html :: html_head"></head>
 <body>
 <div th:replace="fragments/layout.html :: menu"></div>
-    <h2>Welcome Back!</h2>
-<!--    <p th:text="#{welcome.message(${currentEmployee.username})}"></p>-->
-    <p>Greetings, <span th:text="${currentEmployee.firstName + ' ' + currentEmployee.lastName}"></span>!</p>
+    <h2 th:text="#{welcome.title}"></h2>
+    <p th:text="#{welcome.message(${currentEmployee.firstName + ' ' + currentEmployee.lastName})}"></p>
     <p>Username: <span th:text="${currentEmployee.username}"></span></p>
     <p>Role: <span th:text="${#strings.capitalize(role)}"></span></p>
 
     <div th:if="${role == 'manager'}">
         <form action="/user/secret" method="get">
-            <button type="submit">Go to Manager Page</button>
+            <button type="submit" th:text="#{secret.link}"></button>
         </form>
     </div>
 </body>

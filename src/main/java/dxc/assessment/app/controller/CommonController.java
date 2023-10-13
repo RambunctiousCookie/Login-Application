@@ -23,8 +23,8 @@ public class CommonController {
     }
 
     @GetMapping(value = {"/", "/login", "/home"})
-    public String login(Model model) {
-        model.addAttribute("user", new Employee());
+    public String login(Model model, HttpSession session) {
+        //model.addAttribute("user", new Employee());
         return "login";
     }
 

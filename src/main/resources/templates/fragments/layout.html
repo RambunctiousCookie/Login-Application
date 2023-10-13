@@ -10,12 +10,15 @@
 <div th:fragment="menu" id="menu">
     <!-- Navigation -->
     <nav class="navbar">
-        <div th:if="${session.role}">
-            <a th:href="@{/user/welcome}">Dashboard</a>
-            <a th:href="@{/user/department}">Department</a>
-            <a th:href="@{/logout}">Logout</a>
+        <div th:unless="${session.role}">
+            <a th:href="@{/login}" th:text="#{login.title}"></a>
         </div>
-        <a th:href="@{/language}">Language</a>
+        <div th:if="${session.role}">
+            <a th:href="@{/user/welcome}" th:text="#{navbar.dashboard}"></a>
+            <a th:href="@{/user/department}" th:text="#{navbar.dept}"></a>
+            <a th:href="@{/logout}" th:text="#{navbar.logout}"></a>
+        </div>
+        <a th:href="@{/language}" th:text="#{navbar.lang}"></a>
     </nav>
 </div>
 

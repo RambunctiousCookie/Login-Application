@@ -4,7 +4,7 @@
 <body>
 <div th:replace="fragments/layout.html :: menu"></div>
 <div class="error-container">
-    <h1>Error</h1>
+    <h1 th:text="#{error.title}"></h1>
     <p th:text="${errorMessage}">Sorry, something went wrong.</p>
 </div>
 </body>
