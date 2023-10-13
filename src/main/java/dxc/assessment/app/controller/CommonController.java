@@ -36,7 +36,6 @@ public class CommonController {
         if (!loginSuccess) {
             model.addAttribute("loginMessage", "Invalid userid or password");
             return "login";
-//            //TODO: include strings to define this
 //            model.addAttribute("errorMessage", "Username invalid. Please try again.");
 //            return "error-page-modular";
         }

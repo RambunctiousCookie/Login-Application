@@ -23,7 +23,6 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     public Employee findValidEmployeeByUsername(String username){
-        //TODO: throw/propagate error to thymeleaf and handle it with user message
         return employeeRepository.findByUsernameAndDeleted(username, false);
     }
 
