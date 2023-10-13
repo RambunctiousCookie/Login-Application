@@ -22,8 +22,7 @@ public class SecurityInterceptor implements HandlerInterceptor {
             throws IOException {
         String uri = request.getRequestURI();
         LOGGER.info("Intercepting- " + uri);
-        if (uri.startsWith("/css/") /*|| uri.startsWith("/image/") || uri.endsWith(".css")*/) {
-            //accidentally intercepting css
+        if (uri.startsWith("/css/")) { //accidentally intercepting css
             return true;
         }
 
