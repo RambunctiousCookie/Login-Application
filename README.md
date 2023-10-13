@@ -6,12 +6,19 @@ The application is intentionally structured in a way that separates functionalit
 This is done in order to demonstrate the Model-View-Controller (MVC) pattern, as well as reinforce modularity, future testability and separation of concerns.
 Constructor injection is prioritized whenever possible so as to allow for effectively final fields and future testability.
 
+### CommandLineRunner
+- Used to setup and persist the necessary entities. App functionality can be tested using any of the following credentials:
+  - username: manager_one, password: Sparkling_Ocean_456
+  - username: employee_one, password: Radiant_Tiger_789
+  - username: employee_two, password: Mystic_Dragon_357
+
 ### WebAppConfig
 - This configuration file is responsible for supporting the two main interceptors, namely the security and locale change interceptors.
 
 ### Model/Object-Relational Mapping (ORM)
 - All major entity classes inherit from the BaseModel so as to allow for soft-delete functionality and update traceability.
 - Manager inherits from Employee and they share a single-table relationship. The assumption has been made that a manager will be in charge of the department they are in.
+- BCrypt hashing is used for security and authentication.
 - Authority is determined using instanceof conditionals.
 
 ### Repository
