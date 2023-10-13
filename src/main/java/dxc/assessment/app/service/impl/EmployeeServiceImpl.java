@@ -6,11 +6,13 @@ import dxc.assessment.app.service.EmployeeService;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
-    private EmployeeRepository employeeRepository;
+    private final EmployeeRepository employeeRepository;
     @Autowired
     public EmployeeServiceImpl(EmployeeRepository employeeRepository) {
         this.employeeRepository = employeeRepository;
@@ -30,6 +32,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employeeRepository.findEmployeesByDepartmentIdAndDeleted(departmentId, false);
     }
 
+    @Transactional
     public boolean authenticateLogin(String username, String password){
         boolean loginSuccess = false;
         Employee currentEmployee = findValidEmployeeByUsername(username);

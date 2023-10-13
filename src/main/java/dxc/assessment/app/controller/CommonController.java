@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class CommonController {
-    private EmployeeService employeeService;
+    private final EmployeeService employeeService;
 
     @Autowired
     public CommonController(EmployeeService employeeService) {

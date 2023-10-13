@@ -11,7 +11,7 @@ import java.util.List;
 
 @Service
 public class DepartmentServiceImpl implements DepartmentService {
-    private DepartmentRepository departmentRepository;
+    private final DepartmentRepository departmentRepository;
     //constructor injection for DI/testing
     @Autowired
     public DepartmentServiceImpl(DepartmentRepository departmentRepository) {

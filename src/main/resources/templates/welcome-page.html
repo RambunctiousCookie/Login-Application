@@ -2,8 +2,9 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/layout.html :: html_head"></head>
 <body>
-<div th:replace="fragments/layout.html :: menu"/>
+<div th:replace="fragments/layout.html :: menu"></div>
     <h2>Welcome Back!</h2>
+<!--    <p th:text="#{welcome.message(${currentEmployee.username})}"></p>-->
     <p>Greetings, <span th:text="${currentEmployee.firstName + ' ' + currentEmployee.lastName}"></span>!</p>
     <p>Username: <span th:text="${currentEmployee.username}"></span></p>
     <p>Role: <span th:text="${#strings.capitalize(role)}"></span></p>

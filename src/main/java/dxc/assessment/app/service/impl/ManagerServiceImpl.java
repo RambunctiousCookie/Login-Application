@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service
 public class ManagerServiceImpl implements ManagerService {
-    private ManagerRepository managerRepository;
+    private final ManagerRepository managerRepository;
     @Autowired
     public ManagerServiceImpl(ManagerRepository managerRepository) {
         this.managerRepository = managerRepository;
