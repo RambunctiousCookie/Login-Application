@@ -46,16 +46,16 @@ public class SecurityInterceptor implements HandlerInterceptor {
         String role = (String) session.getAttribute("role");
         Employee roleObject = switch (role) {
             case "manager" -> new Manager();
-            case "employee" -> new Employee();
+            case "user" -> new Employee();
             default -> throw new IllegalArgumentException("Role is invalid!");
         };
 
-        if(uri.startsWith("/employee") && !(roleObject instanceof Employee)){
+        if(uri.startsWith("/user") && !(roleObject instanceof Employee)){
             response.sendRedirect("/error/unauthorized");
             return false;
         }
 
-        if(uri.startsWith("/manager") && !(roleObject instanceof Manager)){
+        if(uri.startsWith("/user/secret") && !(roleObject instanceof Manager)){
             response.sendRedirect("/error/unauthorized");
             return false;
         }

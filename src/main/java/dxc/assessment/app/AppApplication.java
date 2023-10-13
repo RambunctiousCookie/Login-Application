@@ -75,6 +75,8 @@ public class AppApplication {
 			else
 				System.out.println(foundEmployee.getUsername()+ " is an employee.");
 
+			List<Employee> employeesByDept = employeeRepository.findAllByDepartment(department);
+
 
 //			employeeTwo.setDeleted(true);
 //			employeeRepository.saveAndFlush(employeeTwo);

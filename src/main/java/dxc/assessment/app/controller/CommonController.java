@@ -46,15 +46,18 @@ public class CommonController {
 
         if (loginSuccess){
             session.setAttribute("username", username);
-            if (currentEmployee instanceof Manager) {
+            if (currentEmployee instanceof Manager)
                 session.setAttribute("role", "manager");
-                return "redirect:/manager/welcome";
-            }
-            else {
-                session.setAttribute("role", "employee");
-                return "redirect:/employee/department";
-            }
+            else
+                session.setAttribute("role", "user");
+            return "redirect:/user/welcome";
         }
         return "login";
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate();
+        return "redirect:/home";
     }
 }

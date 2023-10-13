@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
-<html>
 <head>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/manager.css}" href="/css/manager.css" />
-    <title>Secret Restricted Manager Webpage</title>
+    <title>Welcome Page</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/welcome-page.css}" href="/css/welcome-page.css" />
 </head>
 <body>
-<div class="container">
-    <h2>Super Secret Restricted Manager Webpage!</h2>
-    <p>This page is protected and only Managers can view it.</p>
-    <p>Try viewing this from a non-manager url.</p>
-</div>
+    <h1>Welcome Back!</h1>
+    <p>Greetings, <span th:text="${currentEmployee.firstName + ' ' + currentEmployee.lastName}"></span>!</p>
+    <p>Username: <span th:text="${currentEmployee.username}"></span></p>
+    <p>Role: <span th:text="${#strings.capitalize(role)}"></span></p>
+
+    <div th:if="${role == 'manager'}">
+        <form action="/user/secret" method="get">
+            <button type="submit">Go to Manager Page</button>
+        </form>
+    </div>
 </body>
 </html>

@@ -10,19 +10,15 @@ import java.util.List;
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
     public List<Employee> findByDeleted(boolean deleted);
-    public List<Employee> findAllByDepartment(Department department);
-    //  TODO: see if derived?
+    public List<Employee> findAllByDepartment(Department department);   //derived query
     public Employee findByUsername(String username);
-
     public Employee findByUsernameAndDeleted(String username, boolean deleted);
-
     @Query("SELECT e " +
             "FROM Employee e " +
             "WHERE e.department.id = :departmentId AND e.deleted = :deleted")
     public List<Employee> findEmployeesByDepartmentIdAndDeleted(
             @Param("departmentId") Long departmentId,
             @Param("deleted") boolean deleted);
-
     @Query("SELECT e " +
             "FROM Employee e " +
             "WHERE e.department.id = :departmentId")
