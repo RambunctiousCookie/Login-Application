@@ -12,4 +12,10 @@ public class CustomErrorController implements ErrorController {
         model.addAttribute("errorMessage", "Sorry, something went wrong.");
         return "error-page-modular";
     }
+
+    @RequestMapping("/error/unauthorized")
+    public String handleErrorUnauthorized(Model model, HttpServletRequest request) {
+        model.addAttribute("errorMessage", "You are not allowed to enter this page.");
+        return "error-page-modular";
+    }
 }

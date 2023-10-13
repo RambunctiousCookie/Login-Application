@@ -2,14 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Department Info</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/department-info.css}" href="/department-info.css" />
 </head>
 <body>
 <h1>Department Information</h1>
 <ul>
     <li th:each="employee : ${teamMembers}">
-        <p th:text="${employee.firstName}"></p>
-        <p th:text="${employee.lastName}"></p>
-        <p th:text="${employee.phone}"></p>
+        <p th:text="${employee.firstName + ' ' + employee.lastName}"></p>
+        <p th:text="${'Tel: ' + employee.phone}"></p>
     </li>
 </ul>
 </body>
