@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/universal.css}" href="/css/universal.css" />
 </head>
 <body>
+<div th:replace="fragments/layout.html :: menu"/>
 <div class="error-container">
     <h1>Error</h1>
     <p th:text="${errorMessage}">Sorry, something went wrong.</p>

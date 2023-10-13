@@ -5,7 +5,8 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/universal.css}" href="/css/universal.css" />
 </head>
 <body>
-<h1>Department Information</h1>
+<div th:replace="fragments/layout.html :: menu"/>
+<h2>Department Information</h2>
 <ul>
     <li th:each="employee : ${teamMembers}">
         <p th:text="${employee.firstName + ' ' + employee.lastName}"></p>

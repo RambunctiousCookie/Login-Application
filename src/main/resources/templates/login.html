@@ -7,7 +7,7 @@
 </head>
 
 <body>
-<div class="container">
+<div th:replace="fragments/layout.html :: menu"/>
   <h2>Login</h2>
   <form method="post" th:action="@{'/login'}">
     <table class="framed">
@@ -27,6 +27,5 @@
       </tr>
     </table>
   </form>
-</div>
 </body>
 </html>
