@@ -2,6 +2,7 @@ package dxc.assessment.app.configuration;
 import dxc.assessment.app.interceptor.AuthorityInterceptor;
 import dxc.assessment.app.interceptor.SecurityInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.Ordered;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -20,7 +21,8 @@ public class WebAppConfig implements WebMvcConfigurer {
         registry.addInterceptor(authorityInterceptor)
                 .addPathPatterns(
                         "/manager/*"
-                );
+                ).order(Ordered.HIGHEST_PRECEDENCE);
+
         registry.addInterceptor(securityInterceptor)
                 .addPathPatterns(
                         "/",

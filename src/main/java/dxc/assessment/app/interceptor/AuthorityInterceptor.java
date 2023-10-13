@@ -15,6 +15,8 @@ public class AuthorityInterceptor implements HandlerInterceptor {
     private static final Logger LOGGER =
             LoggerFactory.getLogger(SecurityInterceptor.class);
 
+
+
     @Override
     public boolean preHandle(HttpServletRequest request,
                              HttpServletResponse response, Object handler)
