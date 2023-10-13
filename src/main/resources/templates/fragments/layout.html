@@ -1,0 +1,30 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="html_head" id="html_head">
+    <meta charset="ISO-8859-1">
+    <title>Login Application</title>
+    <link rel="stylesheet" th:href="@{/css/simple.css}" />
+</head>
+
+<body>
+<div th:fragment="menu" id="menu">
+    <!-- Navigation -->
+    <nav class="navbar">
+
+        <div th:if="${session.role}">
+            <a th:href="@{/user/welcome}">Dashboard</a>
+            <a th:href="@{/user/department}">Department</a>
+            <a th:href="@{/logout}" th:utext="#{menu.logout}">Logout</a>
+
+
+            <a th:href="@{/logout}">Logout</a>
+        </div>
+    </nav>
+</div>
+
+<div th:fragment="header" id="header">
+    <div th:if="${not #strings.isEmpty(session.username)}">
+        <h2><em th:utext="'Hello ' + ${session.username}"></em></h2>
+    </div>
+</div>
+</body>
