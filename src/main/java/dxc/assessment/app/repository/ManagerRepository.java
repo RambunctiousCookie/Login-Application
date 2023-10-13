@@ -6,5 +6,6 @@ import java.util.List;
 
 @Repository
 public interface ManagerRepository extends JpaRepository<Manager, Integer> {
+    //TODO: Manager is basically an employee- use polymorphism?
     public List<Manager> findByDeleted(boolean deleted);
 }

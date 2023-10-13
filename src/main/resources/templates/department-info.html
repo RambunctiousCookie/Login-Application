@@ -1,7 +1,16 @@
-<html>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Department Info</title>
+</head>
 <body>
-  <h2>List Employees</h2>
-  <p>This page is protected.</p>
-  <p>If you have not logged but are able to view this page, something is wrong.<p>
+<h1>Department Information</h1>
+<ul>
+    <li th:each="employee : ${teamMembers}">
+        <p th:text="${employee.firstName}"></p>
+        <p th:text="${employee.lastName}"></p>
+        <p th:text="${employee.phone}"></p>
+    </li>
+</ul>
 </body>
 </html>

@@ -18,18 +18,16 @@ public class SecurityInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request,
                              HttpServletResponse response, Object handler)
             throws IOException {
-        LOGGER.info("Intercepting: " + request.getRequestURI());
+        LOGGER.info("Intercepting- Check if logged in: " + request.getRequestURI());
 
         HttpSession session = request.getSession();
         String username = (String) session.getAttribute("username");
+        String role = (String) session.getAttribute("role");
 
-        if (username == null) {
-            // Redirect to login page if no username, meaning not logged in yet
+        if (username == null || role == null) { // conditional for login criteria
             response.sendRedirect("/login");
             return false;
         }
-
-        // Have logged-in, forward to Controller
-        return true;
+        return true;    //forward to Controller
     }
 }

@@ -14,12 +14,20 @@ public class EmployeeServiceImpl implements EmployeeService {
     public EmployeeServiceImpl(EmployeeRepository employeeRepository) {
         this.employeeRepository = employeeRepository;
     }
-
     public List<Employee> findAllEmployees() {
         return employeeRepository.findAll();
     }
     public List<Employee> findAllValidEmployees() {
         return employeeRepository.findByDeleted(false);
+    }
+
+    public Employee findValidEmployeeByUsername(String username){
+        //TODO: throw/propagate error to thymeleaf and handle it with user message
+        return employeeRepository.findByUsernameAndDeleted(username, false);
+    }
+
+    public List<Employee> findValidEmployeesByDeptId(Long departmentId){
+        return employeeRepository.findEmployeesByDepartmentIdAndDeleted(departmentId, false);
     }
 
 }

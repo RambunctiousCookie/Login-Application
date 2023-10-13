@@ -1,24 +1,24 @@
 package dxc.assessment.app.controller;
+
 import dxc.assessment.app.model.Employee;
 import dxc.assessment.app.service.EmployeeService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import jakarta.servlet.http.HttpSession;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
 @Controller
-@RequestMapping("/manager")
-public class ManagerController {
+@RequestMapping("/employee")
+public class EmployeeController {
 
     private EmployeeService employeeService;
 
     @Autowired
-    public ManagerController(EmployeeService employeeService) {
+    public EmployeeController(EmployeeService employeeService) {
         this.employeeService = employeeService;
     }
 
@@ -33,8 +33,4 @@ public class ManagerController {
         return "department-info";
     }
 
-    @GetMapping("/welcome")
-    public String welcome() {
-        return "welcome-page";
-    }
 }

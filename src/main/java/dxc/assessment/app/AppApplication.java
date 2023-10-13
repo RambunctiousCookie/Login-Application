@@ -17,6 +17,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import java.time.LocalDateTime;
 import java.util.Arrays;
+import java.util.List;
 
 @SpringBootApplication
 public class AppApplication {
@@ -62,6 +63,26 @@ public class AppApplication {
 			} else {
 				throw new ObjectNotFoundException(departmentRepository.findById(entityId),"Entity with ID " + entityId + " not found");
 			}
+
+			Employee foundEmployee = employeeRepository.findByUsernameAndDeleted(manager.getUsername(),false);	//query is derived; expected behavior
+//			Employee foundEmployee = employeeRepository.findByUsername("foo");
+
+			if (foundEmployee == null)
+				System.out.println("Employee does not exist!");
+			else if (foundEmployee instanceof Manager)
+				System.out.println(foundEmployee.getUsername()+ " is a manager.");
+				//is a manager
+			else
+				System.out.println(foundEmployee.getUsername()+ " is an employee.");
+
+
+//			employeeTwo.setDeleted(true);
+//			employeeRepository.saveAndFlush(employeeTwo);
+//
+//			//List<Employee> employeeListTeamOne = employeeRepository.findEmployeesByDepartmentId(department.getId());
+//			List<Employee> employeeListTeamOne = employeeRepository.findEmployeesByDepartmentIdAndDeleted(department.getId(),false);
+//
+//			employeeListTeamOne.forEach(System.out::println);
 
 
 			System.out.println();
