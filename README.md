@@ -36,6 +36,6 @@ Constructor injection is prioritized whenever possible so as to allow for effect
 - Resource bundles are used to enable i18n/mutliple language support. For now, only English and Dutch language support has been implemented.
 
 ## Closing Comments
-During the design process I considered using a reactive framework to support the backend logic. However, in the advent of project loom and virtual threads, it seems a more efficient choice to prioritize regular code over reactive code at present. 
+During the design process I considered using a reactive framework to support the backend logic. However, in the advent of Java 21's virtual threads, it seems a more efficient choice to prioritize regular code over reactive code at present. 
 Regular code is also more consistently debuggable, which makes for a superior development experience should this application ever be required to scale.
   
