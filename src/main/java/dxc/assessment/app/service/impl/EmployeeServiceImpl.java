@@ -3,6 +3,7 @@ package dxc.assessment.app.service.impl;
 import dxc.assessment.app.model.Employee;
 import dxc.assessment.app.repository.EmployeeRepository;
 import dxc.assessment.app.service.EmployeeService;
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -28,6 +29,18 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     public List<Employee> findValidEmployeesByDeptId(Long departmentId){
         return employeeRepository.findEmployeesByDepartmentIdAndDeleted(departmentId, false);
+    }
+
+    public boolean authenticateLogin(String username, String password){
+        boolean loginSuccess = false;
+        Employee currentEmployee = findValidEmployeeByUsername(username);
+
+        if (currentEmployee != null) {
+            String hashedInputPassword = BCrypt.hashpw(password, currentEmployee.getSalt());
+            if(hashedInputPassword.equals(currentEmployee.getPassword()))
+                loginSuccess = true;
+        }
+        return loginSuccess;
     }
 
 }

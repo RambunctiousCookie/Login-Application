@@ -10,4 +10,6 @@ public interface EmployeeService {
     Employee findValidEmployeeByUsername(String username);
 
     List<Employee> findValidEmployeesByDeptId(Long departmentId);
+
+    boolean authenticateLogin(String username, String password);
 }

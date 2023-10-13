@@ -30,21 +30,17 @@ public class CommonController {
 
     @PostMapping("/login")
     public String handleLogin(String username, String password, Model model, HttpSession session) {
-        boolean loginSuccess = false;
+        boolean loginSuccess = employeeService.authenticateLogin(username, password);
         Employee currentEmployee = employeeService.findValidEmployeeByUsername(username);
 
-        if (currentEmployee == null) {
-            //TODO: include strings to define this
-            model.addAttribute("errorMessage", "Username invalid. Please try again.");
-            return "error-page-modular";
+        if (!loginSuccess) {
+            model.addAttribute("loginMessage", "Invalid userid or password");
+            return "login";
+//            //TODO: include strings to define this
+//            model.addAttribute("errorMessage", "Username invalid. Please try again.");
+//            return "error-page-modular";
         }
-        else {
-            String hashedInputPassword = BCrypt.hashpw(password, currentEmployee.getSalt());
-            if(hashedInputPassword.equals(currentEmployee.getPassword()))
-                loginSuccess = true;
-        }
-
-        if (loginSuccess){
+        else{
             session.setAttribute("username", username);
             if (currentEmployee instanceof Manager)
                 session.setAttribute("role", "manager");
@@ -52,7 +48,6 @@ public class CommonController {
                 session.setAttribute("role", "user");
             return "redirect:/user/welcome";
         }
-        return "login";
     }
 
     @GetMapping("/logout")

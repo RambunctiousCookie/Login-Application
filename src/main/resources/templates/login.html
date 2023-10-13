@@ -15,9 +15,13 @@
         <td><input type="password" name="password"></td>
       </tr>
       <tr>
-        <td>&nbsp;</td>
-        <td>
+        <td colspan="2">
           <input type="submit" value="Login" />
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <span th:if="${loginMessage != null}" th:text="${loginMessage}"></span>
         </td>
       </tr>
     </table>
