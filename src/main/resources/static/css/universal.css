@@ -1,0 +1,125 @@
+/* universal.css */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    color: #333; /* Text color for the entire page */
+}
+
+h1 {
+    color: #d9534f;
+    margin: 20px 0;
+}
+
+
+h2 {
+    color: #d9534f;
+    margin: 20px 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+
+li {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 10px;
+    background-color: #fff;
+    display: inline-block;
+}
+
+form {
+    margin: 20px auto;
+    max-width: 450px;
+}
+
+
+table.framed {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+}
+
+table.framed td {
+    padding: 10px;
+}
+
+
+p {
+    color: #333;
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+
+span {
+    font-weight: bold;
+}
+
+button {
+    background-color: #337ab7;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #235a93;
+}
+
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.error-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+input[type="text"],
+input[type="password"] {
+    width: 80%;
+    padding: 8px;
+    border: 1px solid #ddd; /* Adjusted border color */
+    border-radius: 3px; /* Adjusted border radius */
+    margin: 5px 0;
+}
+
+input[type="submit"] {
+    background-color: #337ab7; /* Changed button color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px; /* Adjusted border radius */
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+input[type="submit"]:hover {
+    background-color: #235a93; /* Color change on hover */
+}
