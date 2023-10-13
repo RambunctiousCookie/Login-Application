@@ -4,6 +4,7 @@ This is a simple login application based on a Spring-Boot backend. It uses inter
 ## Structure
 The application is intentionally structured in a way that separates functionality into layers (model, repository, service, and controller).
 This is done in order to demonstrate the Model-View-Controller (MVC) pattern, as well as reinforce modularity, future testability and separation of concerns.
+Constructor injection is prioritized whenever possible so as to allow for effectively final fields and future testability.
 
 ### WebAppConfig
 - This configuration file is responsible for supporting the two main interceptors, namely the security and locale change interceptors.
